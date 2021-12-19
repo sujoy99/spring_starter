@@ -17,16 +17,20 @@ spring:
 
   # Database Configuration
   datasource:
-    url: jdbc:oracle:thin:@localhost:1521:xe
+    url: jdbc:h2:mem:mydb
+#    url: jdbc:oracle:thin:@localhost:1521:xe
 #    url: jdbc:mysql://localhost:3306/demo?useUnicode=yes&characterEncoding=UTF-8&characterSetResults=UTF-8
 #    url: jdbc:sqlserver://localhost:1433;databaseName=IEIMS_DEV_ESURVEY_ONGOING
-    username: TEST
+    username: sa
+#    username: TEST
 #    username: root
 #    username: ieims_dev
-    password: "test"
+    password: password
+#    password: "test"
 #    password:
 #    password:
-    driver-class-name: oracle.jdbc.driver.OracleDriver
+    driverClassName: org.h2.Driver
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
@@ -44,7 +48,8 @@ spring:
     # Properties
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.Oracle10gDialect
+        dialect: org.hibernate.dialect.H2Dialect
+#        dialect: org.hibernate.dialect.Oracle10gDialect
 #        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 #        dialect: org.hibernate.dialect.SQLServer2012Dialect
         naming:
